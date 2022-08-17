@@ -5,10 +5,12 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class TelegramBotManager extends TelegramLongPollingBot {
 
-    private DbJokes dbJokes;
+    //private DbJokes dbJokes;
+    private GuessGameLogic guessGameLogic;
 
     public TelegramBotManager() {
-        dbJokes = new DbJokes();
+        //dbJokes = new DbJokes();
+        guessGameLogic = new GuessGameLogic();
     }
 
     @Override
@@ -30,11 +32,24 @@ public class TelegramBotManager extends TelegramLongPollingBot {
 
             String responseText = "";
 
-            if(recieveText.equals("/joke")){
-                responseText = dbJokes.getRandomJoke();
-            }else{
-                responseText = "Ошибка. Команда не распознана. Введите /joke для получения случайной шутки";
+            if (recieveText.equals("/start")) {
+                guessGameLogic.startNewGame();
+                responseText = "Игра началась. Я загадал число от 1 до 100";
+            } else {
+                try {
+                    int userNumber = Integer.parseInt(recieveText);
+                    responseText = guessGameLogic.processUserNumber(userNumber);
+                } catch (Exception e) {
+                    responseText = "ошибка вы ввели не число";
+                }
             }
+
+
+//            if(recieveText.equals("/joke")){
+//                responseText = dbJokes.getRandomJoke();
+//            }else{
+//                responseText = "Ошибка. Команда не распознана. Введите /joke для получения случайной шутки";
+//            }
 
             SendMessage message = new SendMessage();
             message.setChatId(chatId);
