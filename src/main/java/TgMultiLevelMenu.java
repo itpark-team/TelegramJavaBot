@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TgMultiLevelMenu extends TelegramLongPollingBot {
+
+    private BotMultiLevelMenuLogic botMultiLevelMenuLogic = new BotMultiLevelMenuLogic();
+
     @Override
     public String getBotUsername() {
         return "javaJokesTest208bot";
@@ -43,37 +46,39 @@ public class TgMultiLevelMenu extends TelegramLongPollingBot {
             int messageId = update.getCallbackQuery().getMessage().getMessageId();
             long chatId = update.getCallbackQuery().getMessage().getChatId();
 
-            InlineKeyboardMarkup inlineKeyboardMarkup = null;
-            String text = "";
+            botMultiLevelMenuLogic.callMethodByName(callbackDataFromBot, this, chatId, messageId);
 
-            switch (callbackDataFromBot) {
-                case "goto_a":
-                    text = "вы перешли в подменю А";
-                    inlineKeyboardMarkup = getMenuAInlineKeyboard();
-                    break;
-
-                case "goto_b":
-                    text = "вы перешли в подменю B";
-                    inlineKeyboardMarkup = getMenuBInlineKeyboard();
-                    break;
-
-                case "goto_mainmenu":
-                    text = "Main menu";
-                    inlineKeyboardMarkup = getMainMenuInlineKeyboard();
-                    break;
-            }
-
-            EditMessageText message = new EditMessageText();
-            message.setChatId(chatId);
-            message.setMessageId(messageId);
-            message.setText(text);
-            message.setReplyMarkup(inlineKeyboardMarkup);
-
-            try {
-                execute(message);
-            } catch (TelegramApiException e) {
-                e.printStackTrace();
-            }
+//            InlineKeyboardMarkup inlineKeyboardMarkup = null;
+//            String text = "";
+//
+//            switch (callbackDataFromBot) {
+//                case "goto_a":
+//                    text = "вы перешли в подменю А";
+//                    inlineKeyboardMarkup = getMenuAInlineKeyboard();
+//                    break;
+//
+//                case "goto_b":
+//                    text = "вы перешли в подменю B";
+//                    inlineKeyboardMarkup = getMenuBInlineKeyboard();
+//                    break;
+//
+//                case "goto_mainmenu":
+//                    text = "Main menu";
+//                    inlineKeyboardMarkup = getMainMenuInlineKeyboard();
+//                    break;
+//            }
+//
+//            EditMessageText message = new EditMessageText();
+//            message.setChatId(chatId);
+//            message.setMessageId(messageId);
+//            message.setText(text);
+//            message.setReplyMarkup(inlineKeyboardMarkup);
+//
+//            try {
+//                execute(message);
+//            } catch (TelegramApiException e) {
+//                e.printStackTrace();
+//            }
 
         }
     }

@@ -33,6 +33,7 @@ public class Main {
             //botsApi.registerBot(new TgKeyboardSample());
             botsApi.registerBot(new TgMultiLevelMenu());
 
+
 //            SharedResourceManager sharedResourceManager = new SharedResourceManager();
 //            botsApi.registerBot(new TgSharedResource(sharedResourceManager));
 
