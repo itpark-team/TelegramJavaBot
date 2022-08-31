@@ -1,3 +1,5 @@
+package com.mytgbot;
+
 public class Chainclass {
     private int chatId;
     private String message;

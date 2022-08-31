@@ -1,6 +1,7 @@
+package com.mytgbot;
+
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
@@ -33,7 +34,7 @@ public class TgMultiLevelMenu extends TelegramLongPollingBot {
             if (messageFromBot.equals("/start")) {
                 SendMessage message = new SendMessage();
                 message.setChatId(chat_id);
-                message.setText("Main menu");
+                message.setText("com.mytgbot.Main menu");
                 message.setReplyMarkup(getMainMenuInlineKeyboard());
                 try {
                     execute(message);
@@ -63,7 +64,7 @@ public class TgMultiLevelMenu extends TelegramLongPollingBot {
 //                    break;
 //
 //                case "goto_mainmenu":
-//                    text = "Main menu";
+//                    text = "com.mytgbot.Main menu";
 //                    inlineKeyboardMarkup = getMainMenuInlineKeyboard();
 //                    break;
 //            }

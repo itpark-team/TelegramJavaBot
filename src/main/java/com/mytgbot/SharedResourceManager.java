@@ -1,3 +1,5 @@
+package com.mytgbot;
+
 import java.util.*;
 
 public class SharedResourceManager {
@@ -32,7 +34,7 @@ public class SharedResourceManager {
 
     //    private List<String> strings = new ArrayList<>();
 //
-//    public SharedResource() {
+//    public com.mytgbot.SharedResource() {
 //        random = new Random();
 //        Collections.addAll(strings,
 //                "aaaa",

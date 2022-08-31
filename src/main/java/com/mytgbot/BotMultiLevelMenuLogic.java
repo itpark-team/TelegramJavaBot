@@ -1,3 +1,5 @@
+package com.mytgbot;
+
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 
 import java.util.HashMap;

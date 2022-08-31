@@ -1,3 +1,5 @@
+package com.mytgbot;
+
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -5,11 +7,11 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class TelegramBotManager extends TelegramLongPollingBot {
 
-    //private DbJokes dbJokes;
+    //private com.mytgbot.DbJokes dbJokes;
     private GuessGameLogic guessGameLogic;
 
     public TelegramBotManager() {
-        //dbJokes = new DbJokes();
+        //dbJokes = new com.mytgbot.DbJokes();
         guessGameLogic = new GuessGameLogic();
     }
 

@@ -1,3 +1,5 @@
+package com.mytgbot;
+
 import java.util.Random;
 
 public class GuessGameLogic {

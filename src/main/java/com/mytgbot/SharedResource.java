@@ -1,3 +1,5 @@
+package com.mytgbot;
+
 public class SharedResource {
     private int x;
     private String name;
